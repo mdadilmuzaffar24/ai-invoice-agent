@@ -1,0 +1,14 @@
+# Security: Hide our secrets and keys
+.streamlit/secrets.toml
+credentials.json
+.env
+
+# Environment: Hide our local Python setup
+venv/
+.venv/
+env/
+
+# Python: Hide temporary system files
+__pycache__/
+*.pyc
+.DS_Store
