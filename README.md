@@ -1,5 +1,8 @@
 # 🤖 Automated AI Financial Agent (Two-Way Sync)
 
+<img width="1024" height="572" alt="image" src="https://github.com/user-attachments/assets/f96a78a9-d084-4c4a-b956-4bc7793956dd" />
+
+
 An AI-powered agent that automates financial data extraction from PDF invoices in Google Drive and synchronizes it with Google Sheets.
 
 This project goes beyond simple data appending by implementing a **Continuous Two-Way Synchronization** architecture, ensuring the database remains a perfect mirror of the source file system.
