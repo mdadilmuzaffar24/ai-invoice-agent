@@ -15,6 +15,13 @@ This project goes beyond simple data appending by implementing a **Continuous Tw
 * **Enterprise-Grade Security:** Cryptographic keys, Google Cloud Service Account credentials, and LLM API tokens are entirely decoupled from the codebase using Streamlit's native encrypted secrets management.
 * **Dynamic UI/UX:** Features a custom-styled, interactive frontend with real-time processing logs, progress tracking, and dynamic success metrics.
 
+## 🏗️ Advanced ADK Graph Architecture
+To scale beyond a simple script, this agent has been re-engineered using a deterministic linear state graph. This decouples the frontend execution from the heavy background processes, guaranteeing system stability:
+* **`node_ingest_batch`**: Automatically runs live differential checks against the cloud ledger to drop duplicates and maintain data idempotency.
+* **`node_process_queue`**: Implements a native 8-second backoff pacing loop to cleanly handle Google Cloud and LLM API rate limits (`429` and `503`).
+* **`node_extract_invoice`**: Leverages structured schema output to guarantee exact type mapping.
+* **`node_export_ledger`**: Securely syncs authenticated records directly to the cloud database via a headless GCP Service Account.
+
 ## 🛠️ Technology Stack
 
 * **Language:** Python 3.11+
@@ -23,6 +30,11 @@ This project goes beyond simple data appending by implementing a **Continuous Tw
 * **Cloud Infrastructure:** Google Drive API (v3), Google Sheets API (v4)
 * **Frontend & Deployment:** Streamlit Community Cloud
 * **Authentication:** OAuth2 Service Accounts (`oauth2client`)
+
+## 🛠️ Core Concepts Demonstrated (Kaggle Intensive)
+1. **Agent / Multi-Agent Workflow (ADK):** Native tracking of an explicit `AgentState` queue across isolated nodes.
+2. **Security & Validation:** Fully protected environment variables (`.env`) paired with strict Pydantic cryptographic-style data validation schemas.
+3. **Antigravity Environment:** Built, tested, and fully optimized within the native Antigravity IDE ecosystem.
 
 ## 💡 Processing Pipeline Workflow
 
